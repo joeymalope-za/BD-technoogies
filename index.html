@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BG technologies Assessment 1</title>
+    <style>
+        #btn__toggle{
+            background-color: #4CAF50;
+            color:white;
+            padding: 15px 32px;
+            font-size: 16px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 0px 0px;
+            transition: background-color 0.3s;
+        }
+
+        #btn__toggle:hover{
+            background-color: #45a049;
+            box-shadow: rgba(149, 157, 165, 0.2) 5px 5px 5px;
+        }
+
+        #btn__toggle:focus{
+            outline: solid 2px black;
+        }
+
+        .content__box{
+            display: block 
+        }
+
+        /* 
+        - This will be toggled by the JS inorder to hide the div.
+        - I thought of adding the display:none to the .context__box but I felt this would be more readable 
+        */
+        .content__box.hidden {
+            display: none;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+
+        @keyframes fadeIn {
+            from {
+            opacity: 0;
+            }
+            to {
+            opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button id="btn__toggle">
+        Toggle Visibility
+    </button>
+    <div class="container">
+        <div class="content__box">Hello World!</div>
+        <div class="content__box hidden">Welcome User!</div>
+        <div class="content__box hidden">Thank You!</div>
+    </div>
+    <p id="preview__counter">
+       Showing 1 of 3
+    </p>
+    <script >
+        document.addEventListener('DOMContentLoaded', function() {
+                // Initialize the variables
+                const toggleButton = document.getElementById('btn__toggle');
+                const preview = document.getElementById('preview__counter');
+                const divList = document.querySelectorAll('.content__box');
+                const length = 3;
+                let currentIndex = 0;
+
+                // Add on click event listener to the button
+                toggleButton.addEventListener('click', function() {
+                // Hide the previously visible element
+                divList[currentIndex].classList.toggle('fade-in');
+                divList[currentIndex].classList.toggle('hidden');
+
+                // Update the index for the next element
+                currentIndex = (currentIndex + 1) % length;
+
+                // Show the next element
+                divList[currentIndex].classList.toggle('fade-in');
+                divList[currentIndex].classList.toggle('hidden');
+
+                // Update the preview counter
+                preview.innerHTML = `Showing ${currentIndex + 1} of 3`;
+            });
+        });
+    </script>
+</body>
+</html>
