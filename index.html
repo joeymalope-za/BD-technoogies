@@ -3,90 +3,352 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BG technologies Assessment 1</title>
-    <style>
-        #btn__toggle{
-            background-color: #4CAF50;
-            color:white;
-            padding: 15px 32px;
-            font-size: 16px;
-            box-shadow: rgba(149, 157, 165, 0.2) 0px 0px 0px;
-            transition: background-color 0.3s;
-        }
-
-        #btn__toggle:hover{
-            background-color: #45a049;
-            box-shadow: rgba(149, 157, 165, 0.2) 5px 5px 5px;
-        }
-
-        #btn__toggle:focus{
-            outline: solid 2px black;
-        }
-
-        .content__box{
-            display: block 
-        }
-
-        /* 
-        - This will be toggled by the JS inorder to hide the div.
-        - I thought of adding the display:none to the .context__box but I felt this would be more readable 
-        */
-        .content__box.hidden {
-            display: none;
-        }
-
-        .fade-in {
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-
-        @keyframes fadeIn {
-            from {
-            opacity: 0;
-            }
-            to {
-            opacity: 1;
-            }
-        }
-    </style>
+    <title>BG technologies Assessment 2</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-    <button id="btn__toggle">
-        Toggle Visibility
-    </button>
-    <div class="container">
-        <div class="content__box">Hello World!</div>
-        <div class="content__box hidden">Welcome User!</div>
-        <div class="content__box hidden">Thank You!</div>
-    </div>
-    <p id="preview__counter">
-       Showing 1 of 3
-    </p>
+    <nav>
+        <span>Snap!!</span>
+        <div class="left-navbar">
+            <div class="countdown" data-minutes="1"></div>
+            <div class="login__btn"><span>
+                Login
+            </span></div>
+        </div>
+    </nav>
+    <main class="cont">
+        <div class="container">
+            <div class="content">
+              <div class="box">
+                <img src="./assets/1.png" alt="">
+                <img src="./assets/2.png" alt="">
+                <img src="./assets/3.png" alt="">
+                <img src="./assets/1.png" alt="">
+                <img src="./assets/2.png" alt="">
+                <img src="./assets/3.png" alt="">
+                <img src="./assets/10.png" alt="">
+    
+              </div>
+              <div class="box">
+                <img src="./assets/4.png" alt="">
+                <img src="./assets/5.png" alt="">
+                <img src="./assets/6.png" alt="">
+                <img src="./assets/4.png" alt="">
+                <img src="./assets/5.png" alt="">
+                <img src="./assets/6.png" alt="">
+                <img src="./assets/11.png" alt="">
+    
+              </div>
+              <div class="box">
+                <img src="./assets/7.png" alt="">
+                <img src="./assets/8.png" alt="">
+                <img src="./assets/9.png" alt=""> 
+                <img src="./assets/7.png" alt="">    
+                <img src="./assets/8.png" alt="">  
+                <img src="./assets/9.png" alt="">   
+                <img src="./assets/12.png" alt="">
+       
+              </div>
+              <div class="box">
+                <img src="./assets/1.png" alt="">
+                <img src="./assets/2.png" alt="">
+                <img src="./assets/3.png" alt="">
+                <img src="./assets/1.png" alt="">
+                <img src="./assets/2.png" alt="">
+                <img src="./assets/3.png" alt="">
+                <img src="./assets/13.png" alt="">
+    
+              </div>
+              <div class="box">
+                <img src="./assets/15.png" alt="">
+                <img src="./assets/11.png" alt="">
+                <img src="./assets/12.png" alt="">
+                <img src="./assets/13.png" alt="">
+                <img src="./assets/2.png" alt="">
+                <img src="./assets/6.png" alt="">
+                <img src="./assets/14.png" alt="">
+              </div>
+            </div>
+        </div>
+        <div class="form-box">
+            <form id="form" novalidate>
+                <!-- Stepper UI -->
+                <div class="mb-4">
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+        
+                <!-- Step 1: Login Info -->
+                <div id="step-1">
+                    <h2>Register Info</h2>
+                    <hr />
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                        <div class="invalid-feedback">Please enter a valid email address.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="form-control" required>
+                        <div class="invalid-feedback">Please enter a password.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" class="form-control" required>
+                        <div class="invalid-feedback">Please confirm your password.</div>
+                    </div>
+                    <div class="cta-buttons">
+                        <button id="next-1" class="btn btn-primary custom-primary">Next</button>
+                    </div>
+                </div>
+        
+                <!-- Step 2: Gender -->
+                <div id="step-2" class="hidden">
+                    <h2>Gender</h2>
+                    <hr />
+                    <div class="form-group">
+                        <label for="userGender">Your Gender</label>
+                        <select id="userGender" class="form-control" required>
+                            <option value="">Select your gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="invalid-feedback">Select your gender.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="preferredGender">Preferred Gender</label>
+                        <select id="preferredGender" class="form-control" required>
+                            <option value="">Select preferred gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="invalid-feedback">Select your preferred.</div>
+                    </div>
+                    <div class="cta-buttons">
+                        <button id="prev-2" class="btn btn-secondary custom-secondary">Previous</button>
+                        <button id="next-2" class="btn btn-primary custom-primary">Next</button>
+                    </div>
+                </div>
+        
+                <!-- Step 3: About User -->
+                <div id="step-3" class="hidden">
+                    <h2>About User</h2>
+                    <hr />
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" class="form-control" required>
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="tacCheck" required>
+                        <label class="form-check-label" for="tacCheck">I agree to the terms and conditions</label>
+                    </div>
+                    <div class="cta-buttons">
+                        <button id="prev-3" class="btn btn-secondary custom-secondary">Previous</button>
+                        <button type="submit" class="btn btn-primary custom-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
     <script >
         document.addEventListener('DOMContentLoaded', function() {
-                // Initialize the variables
-                const toggleButton = document.getElementById('btn__toggle');
-                const preview = document.getElementById('preview__counter');
-                const divList = document.querySelectorAll('.content__box');
-                const length = 3;
-                let currentIndex = 0;
+                const countdownElement = document.querySelector('.countdown');
+                let totalSeconds = countdownElement.getAttribute('data-minutes') * 60;
+                const TIMEOUT = 5 * 60;
 
-                // Add on click event listener to the button
-                toggleButton.addEventListener('click', function() {
-                // Hide the previously visible element
-                divList[currentIndex].classList.toggle('fade-in');
-                divList[currentIndex].classList.toggle('hidden');
+                const intervalId = setInterval(() => {
+                    totalSeconds--;
+                    const minutes = Math.floor(totalSeconds / 60);
+                    const seconds = totalSeconds % 60;
+                    countdownElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                    
+                    if (totalSeconds < 60) {
+                        countdownElement.style.color = '#FE201F';
+                        countdownElement.style.animation = 'blink-animation 0.8s infinite';
+                    }
 
-                // Update the index for the next element
-                currentIndex = (currentIndex + 1) % length;
+                    if (totalSeconds == 0) {
+                        clearInterval(intervalId);
+                        countdownElement.textContent = 'Time\'s up!';
+                    }
 
-                // Show the next element
-                divList[currentIndex].classList.toggle('fade-in');
-                divList[currentIndex].classList.toggle('hidden');
+                    if(totalSeconds % 40 == 0){
+                        console.log('less than 40');
+                        const boxes = document.querySelectorAll('.box');
+                        let tracker = 0;
+                        boxes.forEach(box => {
+                            // Create 5 new img elements with random src attributes
+                            for (let i = 0; i < 5; i++) {
+                                const img = document.createElement('img');
+                                // Set initial opacity to 0
+                                img.style.opacity = 0;
+                                box.appendChild(img);
+                                // Trigger reflow to apply opacity change smoothly
+                                img.offsetHeight;
+                                // Gradually increase opacity to 1
+                                img.style.opacity = 1;
+                                const randomNumber = Math.floor(Math.random() * 16) + 1;
+                                img.src = `./assets/${tracker % 15}.png`;
+                                box.appendChild(img);
+                                tracker++;
+                            }
+                            box.offsetHeight;
+                        });
+                    }
+                }, 1000);
 
-                // Update the preview counter
-                preview.innerHTML = `Showing ${currentIndex + 1} of 3`;
+                const form = document.getElementById('form');
+                const step1 = document.getElementById('step-1');
+                const step2 = document.getElementById('step-2');
+                const step3 = document.getElementById('step-3');
+
+                const step1Indicator = document.getElementById('step1-indicator');
+                const step2Indicator = document.getElementById('step2-indicator');
+                const step3Indicator = document.getElementById('step3-indicator');
+
+                const next1 = document.getElementById('next-1');
+                const next2 = document.getElementById('next-2');
+                const prev2 = document.getElementById('prev-2');
+                const prev3 = document.getElementById('prev-3');
+
+                // setInterval
+                next1.addEventListener('click', function() {
+                    if (validateStep1()) {
+                        step1.classList.add('hidden');
+                        step2.classList.remove('hidden');
+                        step1Indicator.classList.remove('active');
+                        step2Indicator.classList.add('active');
+                    }
+                });
+
+                next2.addEventListener('click', function() {
+                    step2.classList.add('hidden');
+                    step3.classList.remove('hidden');
+                    step2Indicator.classList.remove('active');
+                    step3Indicator.classList.add('active');
+                });
+
+                prev2.addEventListener('click', function() {
+                    step2.classList.add('hidden');
+                    step1.classList.remove('hidden');
+                    step2Indicator.classList.remove('active');
+                    step1Indicator.classList.add('active');
+                });
+
+                prev3.addEventListener('click', function() {
+                    step3.classList.add('hidden');
+                    step2.classList.remove('hidden');
+                    step3Indicator.classList.remove('active');
+                    step2Indicator.classList.add('active');
+                });
+
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    if (validateStep3()) {
+                        // Submit the form or perform further actions
+                        console.log("Form submitted successfully!");
+                    }
+                });
+
+                function validateStep1() {
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('password').value;
+                    const confirmPassword = document.getElementById('confirmPassword').value;
+                    if ((password === confirmPassword) && (email !== "" || password !== "" || confirmPassword !== "")) {
+                        alert("Passwords do not match");
+                        return true;
+                    }else return false;
+                }
+
+                function validateStep3() {
+                    const dob = document.getElementById('dob').value;
+                    const tacCheck = document.getElementById('tacCheck').checked;
+                    if (!dob || !tacCheck) {
+                        alert("Please fill all required fields");
+                        return false;
+                    }
+                    return true;
+                }
             });
+    </script>
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const form = document.getElementById('form');
+            const step1 = document.getElementById('step-1');
+            const step2 = document.getElementById('step-2');
+            const step3 = document.getElementById('step-3');
+    
+            const progressBar = document.querySelector('.progress-bar');
+    
+            const next1 = document.getElementById('next-1');
+            const next2 = document.getElementById('next-2');
+            const prev2 = document.getElementById('prev-2');
+            const prev3 = document.getElementById('prev-3');
+    
+            next1.addEventListener('click', function() {
+                if (validateStep1()) {
+                    step1.classList.add('hidden');
+                    step2.classList.remove('hidden');
+                    progressBar.style.width = '66%';
+                }
+            });
+    
+            next2.addEventListener('click', function() {
+                step2.classList.add('hidden');
+                step3.classList.remove('hidden');
+                progressBar.style.width = '100%';
+            });
+    
+            prev2.addEventListener('click', function() {
+                step2.classList.add('hidden');
+                step1.classList.remove('hidden');
+                progressBar.style.width = '33%';
+            });
+    
+            prev3.addEventListener('click', function() {
+                step3.classList.add('hidden');
+                step2.classList.remove('hidden');
+                progressBar.style.width = '66%';
+            });
+    
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                if (validateStep3()) {
+                    // Submit the form or perform further actions
+                    console.log("Form submitted successfully!");
+                }
+            });
+    
+            function validateStep1() {
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                if (password !== confirmPassword) {
+                    alert("Passwords do not match");
+                    return false;
+                }
+                return true;
+            }
+    
+            function validateStep3() {
+                const dob = document.getElementById('dob').value;
+                const tacCheck = document.getElementById('tacCheck').checked;
+                if (!dob || !tacCheck) {
+                    alert("Please fill all required fields");
+                    return false;
+                }
+                return true;
+            }
         });
     </script>
 </body>
