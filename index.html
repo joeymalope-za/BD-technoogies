@@ -310,13 +310,15 @@
                     countdownElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
                     
                     if (totalSeconds < 60) {
+                        // access css properties of the countdown element
+
                         countdownElement.style.color = '#FE201F';
                         countdownElement.style.animation = 'blink-animation 0.8s infinite';
                     }
 
                     if (totalSeconds == 0) {
                         clearInterval(intervalId);
-                        countdownElement.textContent = 'Time\'s up!';
+                        countdownElement.textContent = '00:00';
                     }
 
                     if(totalSeconds % 40 == 0){
