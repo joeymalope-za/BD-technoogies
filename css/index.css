@@ -61,7 +61,7 @@
 .login__btn{
     border-radius: 50px;
     height: 50px;
-    background-color: var(--primary);
+    background-color: #B20201;
     text-transform: uppercase;
     color: var(--white);
     padding: 5px 32px;
