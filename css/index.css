@@ -34,7 +34,7 @@
 }
 
 .custom-primary  {
-    background-color: var(--primary); /* Your custom color */
+    background-color: #990606; /* Your custom color */
     border-color: var(--primary); /* Your custom color */
 }
 
@@ -121,12 +121,15 @@ nav {
     width: 150%;
     gap: 1rem;
     transform: translate3d(0%,-50%, 0) rotate(22.5deg) ;
+    position: relative;
+    /* left: 25%; */
 }
 
 .box {
-    transition: all 0.25s linear;
+    /* transition: all 0.25s linear; */
     /* background: #000; */
     animation: scroll 500s linear infinite;
+  /* animation: scroll 180s linear 1; */
     border: none !important;
     overflow: hidden;
     height: calc(100% / 3);
@@ -229,6 +232,13 @@ label{
     height: 5px;
     background-color: #FE201F;
     border-radius: 10px;
+}
+
+.progress-info{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
 }
 
 input.form-control, select.form-control{
