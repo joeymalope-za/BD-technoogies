@@ -53,17 +53,17 @@
 }
 
 .custom-primary:active {
-    background-color: #990606; /* Your custom color */
+    background-color: #990606 !important; /* Your custom color */
     border-color: var(--primary); /* Your custom color */
 }
 
 .custom-secondary:active {
-    background-color: #990606; /* Your custom color */
+    background-color: #990606 !important; /* Your custom color */
     border-color: #374151; /* Your custom color */
 }
 
 .custom-primary:focus {
-    background-color: #990606; /* Your custom color */
+    background-color: #990606 !important; /* Your custom color */
     border-color: var(--primary); /* Your custom color */
 }
 
@@ -344,6 +344,15 @@ h2{
         max-height: 65vh;
     }
 
+    .tac{
+        margin: 0.5rem 0;
+        font-size: 9px;
+    }
+
+    .tac__label{
+        font-size: 12px;
+    }
+
     .extending-btn{
         min-width: none;
     }
@@ -363,9 +372,15 @@ h2{
     }
 
     .cta-buttons{
-        flex-direction: column;
+        margin-top: 1rem;
+        flex-direction: column-reverse;
         gap: 1rem;
         justify-self: center;
+    }
+
+    hr{
+        border-bottom: 1px solid #374151;
+        margin: 1.5rem 0;
     }
 }
 
