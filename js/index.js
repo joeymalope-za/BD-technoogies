@@ -20,28 +20,28 @@ document.addEventListener('DOMContentLoaded', function() {
             countdownElement.textContent = '00:00';
         }
 
-        // if(totalSeconds % 60 == 0){
-        //     console.log('less than 60');
-        //     const boxes = document.querySelectorAll('.box');
-        //     let tracker = 1;
-        //     boxes.forEach(box => {
-        //         // Create 5 new img elements with random src attributes
-        //         for (let i = 0; i < 5; i++) {
-        //             const img = document.createElement('img');
-        //             // Set initial opacity to 0
-        //             img.style.opacity = 0;
-        //             box.appendChild(img);
-        //             // Trigger reflow to apply opacity change smoothly
-        //             img.offsetHeight;
-        //             // Gradually increase opacity to 1
-        //             img.style.opacity = 1;
-        //             const randomNumber = Math.floor(Math.random() * 16) + 1;
-        //             img.src = `./assets/${((tracker) % 14)+1}.webp`;
-        //             box.appendChild(img);
-        //             tracker++;
-        //         }
-        //         box.offsetHeight;
-        //     });
-        // }
+        if(totalSeconds % 60 == 0){
+            console.log('less than 60');
+            const boxes = document.querySelectorAll('.box');
+            let tracker = 1;
+            boxes.forEach(box => {
+                // Create 5 new img elements with random src attributes
+                for (let i = 0; i < 5; i++) {
+                    const img = document.createElement('img');
+                    // Set initial opacity to 0
+                    img.style.opacity = 0;
+                    box.appendChild(img);
+                    // Trigger reflow to apply opacity change smoothly
+                    img.offsetHeight;
+                    // Gradually increase opacity to 1
+                    img.style.opacity = 1;
+                    const randomNumber = Math.floor(Math.random() * 16) + 1;
+                    img.src = `./assets/${((tracker) % 14)+1}.webp`;
+                    box.appendChild(img);
+                    tracker++;
+                }
+                box.offsetHeight;
+            });
+        }
     }, 1000);        
   });
