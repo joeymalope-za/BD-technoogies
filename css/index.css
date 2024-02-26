@@ -92,6 +92,10 @@
     transform: translate(0, 45%) !important;
 }
 
+.container{
+    padding: 0;
+}
+
 /* Extending Bootstrap  */
 
 /* navigation component */
@@ -320,8 +324,6 @@ h2{
 }
 
 /* Banner Component */
-
-
 /* media query tablet and below */
 @media screen and (max-width: 1200px){
     .logo{
