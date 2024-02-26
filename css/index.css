@@ -323,8 +323,7 @@ h2{
 
 
 /* media query tablet and below */
-
-@media only screen and (max-width: 800px) {
+@media screen and (max-width: 1200px){
     .logo{
         display: none;
     }

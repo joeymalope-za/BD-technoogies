@@ -8,7 +8,7 @@ $(document).ready(function() {
     
     const next1 = document.getElementById('next-1');
     const next2 = document.getElementById('next-2');
-    const next3 = document.getElementById('next-2');
+    const next3 = document.getElementById('next-3');
     const prev2 = document.getElementById('prev-2');
     const prev3 = document.getElementById('prev-3');
 
@@ -84,6 +84,7 @@ $(document).ready(function() {
         if (validateStep3()) {
             // Submit the form or perform further actions
             $('#myModal').modal('show');
+
         }
     });
 
@@ -91,7 +92,7 @@ $(document).ready(function() {
         const password = document.getElementById('password');
         const confirmPassword = document.getElementById('confirmPassword');
         const email = document.getElementById('email');
-        // (password.value === confirmPassword.value) &&
+
         if (( password.value === "" ) || (confirmPassword.value === "")  || (email.value === "" ) || (password.value !== confirmPassword.value)) {
           
           if(password.value === confirmPassword.value){
@@ -143,9 +144,9 @@ $(document).ready(function() {
     function validateStep3() {
         const dob = document.getElementById('dob');
         const tacCheck = document.getElementById('tacCheck');
-        const status = document.querySelector('.progress__info__status');
+        const username = document.getElementById('username');
 
-        if ((!dob.value || !tacCheck.checked) ) {
+        if (!dob.value || !tacCheck.checked || !username.value) {
           if(!(dob.classList.contains('touched') && tacCheck.classList.contains('touched'))){
             dob.classList.add('is-invalid');
             tacCheck.classList.add('is-invalid');
@@ -159,6 +160,7 @@ $(document).ready(function() {
             const today = new Date();
             const age = today.getFullYear() - dobValue.getFullYear();
             const monthDiff = today.getMonth() - dobValue.getMonth();
+
             if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dobValue.getDate())) {
                 age--;
             }
