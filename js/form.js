@@ -23,11 +23,16 @@ $(document).ready(function() {
         tacCheck.classList.remove('touched');
     });
 
-//    // const formInputs = document.querySelectorAll('.form-control');
-//    document.querySelector('#login__btn').addEventListener('click', function(){
-//     console.log('login__btn');
-//    // $('#myModal').modal('show');
-//    });
+    //Check if the value of the input is valid as the user enters the input
+    document.querySelectorAll('.form-control').forEach(input => {
+        input.addEventListener('input', function() {
+            if(input.checkValidity()){
+                input.classList.remove('is-invalid');
+            }else{
+                input.classList.add('is-invalid');
+            }
+        });
+    });
 
     function updateProgressStatus(currentProgress){
             const status = document.querySelector('.progress__info .progress__info__status');
@@ -88,7 +93,7 @@ $(document).ready(function() {
         event.preventDefault();
         if (validateStep3()) {
             // Submit the form or perform further actions
-          //  $('#myModal').modal('show');
+           $('#myModal').modal('show');
             document.querySelector('.progress__info__prompt').textContent = 'Form submitted successfully!';
         }
     });
@@ -155,27 +160,18 @@ $(document).ready(function() {
         const tacCheck = document.getElementById('tacCheck');
         const username = document.getElementById('username');
 
-        console.log('dob === ' ,dob.value.length);
-        console.log('tacCheck === ' ,tacCheck.checked);
-        console.log('username === ' ,username.value.length);
-
         if (dob.value=== "" || !tacCheck.checked || username.value==="") {
             if (dob.value === "" ) {
                 dob.classList.add('is-invalid');
-                console.log('Entered: dob === ', tacCheck);
-
             }
 
             if (username.value ==="") {
                 username.classList.add('is-invalid');
-                console.log('Entered: username === ', tacCheck);
-
             }
 
             if (tacCheck.checked) {
                 tacCheck.classList.add('is-invalid');
                 tacCheck.setCustomValidity("Check the terms and conditions");
-                console.log('Entered: tacCheck === ', tacCheck);
             }
 
             return false;
