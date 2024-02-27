@@ -23,10 +23,15 @@ $(document).ready(function() {
         tacCheck.classList.remove('touched');
     });
 
+//    // const formInputs = document.querySelectorAll('.form-control');
+//    document.querySelector('#login__btn').addEventListener('click', function(){
+//     console.log('login__btn');
+//    // $('#myModal').modal('show');
+//    });
+
     function updateProgressStatus(currentProgress){
             const status = document.querySelector('.progress__info .progress__info__status');
-            console.log('currentProgress === ', currentProgress);
-            console.log('status === ', status);
+
             if(currentProgress == '33%'){
                 status.textContent = 'Step 1 of 3';
             } else if(currentProgress == '66%'){
@@ -56,7 +61,7 @@ $(document).ready(function() {
 
     next3.addEventListener('click', function() {
 
-        if (validateStep3()) {
+        if (validateStep3(true)) {
             step3.classList.add('hidden');
             progressBar.style.width = '100%';
             updateProgressStatus("100%");
@@ -83,8 +88,8 @@ $(document).ready(function() {
         event.preventDefault();
         if (validateStep3()) {
             // Submit the form or perform further actions
-            $('#myModal').modal('show');
-
+          //  $('#myModal').modal('show');
+            document.querySelector('.progress__info__prompt').textContent = 'Form submitted successfully!';
         }
     });
 
@@ -141,24 +146,45 @@ $(document).ready(function() {
         }
     }
 
-    function validateStep3() {
+    function validateStep3(finalSubmit) {
+        if(!finalSubmit){
+            return false;
+        }
+
         const dob = document.getElementById('dob');
         const tacCheck = document.getElementById('tacCheck');
         const username = document.getElementById('username');
 
-        if (!dob.value || !tacCheck.checked || !username.value) {
-          if(!(dob.classList.contains('touched') && tacCheck.classList.contains('touched'))){
-            dob.classList.add('is-invalid');
-            tacCheck.classList.add('is-invalid');
-            tacCheck.setCustomValidity("Check the terms and conditions");
-        }
+        console.log('dob === ' ,dob.value.length);
+        console.log('tacCheck === ' ,tacCheck.checked);
+        console.log('username === ' ,username.value.length);
+
+        if (dob.value=== "" || !tacCheck.checked || username.value==="") {
+            if (dob.value === "" ) {
+                dob.classList.add('is-invalid');
+                console.log('Entered: dob === ', tacCheck);
+
+            }
+
+            if (username.value ==="") {
+                username.classList.add('is-invalid');
+                console.log('Entered: username === ', tacCheck);
+
+            }
+
+            if (tacCheck.checked) {
+                tacCheck.classList.add('is-invalid');
+                tacCheck.setCustomValidity("Check the terms and conditions");
+                console.log('Entered: tacCheck === ', tacCheck);
+            }
 
             return false;
+
         } else {
             // Validate age
             const dobValue = new Date(dob.value);
             const today = new Date();
-            const age = today.getFullYear() - dobValue.getFullYear();
+            let age = today.getFullYear() - dobValue.getFullYear();
             const monthDiff = today.getMonth() - dobValue.getMonth();
 
             if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dobValue.getDate())) {

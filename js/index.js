@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
         countdownElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         
         if (totalSeconds < 60) {
-            // access css properties of the countdown element
-            countdownElement.style.color = '#FE201F';
-            countdownElement.style.animation = 'blink-animation 0.8s infinite';
+            // add css classes of the countdown element
+            countdownElement.classList.add('blink');
+            countdownElement.classList.add('warning');
         }
 
         if (totalSeconds == 0) {
@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
             countdownElement.textContent = '00:00';
         }
 
-        //Gradually add more images
+        //Gradually add more images. 
         if(totalSeconds % 60 == 0){
-            const imageColumns = document.querySelectorAll('.box');
+            const imageColumns = document.querySelectorAll('.image__col');
             let tracker = 1;
             imageColumns.forEach(box => {
                 // Create 5 new img elements with random src attributes
