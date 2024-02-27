@@ -103,9 +103,9 @@ $(document).ready(function() {
         const confirmPassword = document.getElementById('confirmPassword');
         const email = document.getElementById('email');
 
-        if (( password.value === "" ) || (confirmPassword.value === "")  || (email.value === "" ) || (password.value !== confirmPassword.value)) {
-          
-          if(password.value === confirmPassword.value){
+        if (( !password.checkValidity() ) || (confirmPassword.value !== password.value)  || (!email.checkValidity())) {
+          console.log(password.checkValidity(), confirmPassword.value === password.value, email.checkValidity());
+          if(password.value !== confirmPassword.value){
             confirmPassword.classList.add('is-invalid');
           }
 
@@ -134,7 +134,7 @@ $(document).ready(function() {
     function validateStep2() {
         const gender = document.getElementById('userGender');
         const preferredGender = document.getElementById('preferredGender');
-        if ( (gender.value === "" || preferredGender.value === "" )) {
+        if ( (!gender.checkValidity() || !preferredGender.checkValidity())) {
 
           if(gender.value === "")
            gender.classList.add('is-invalid');
@@ -160,12 +160,12 @@ $(document).ready(function() {
         const tacCheck = document.getElementById('tacCheck');
         const username = document.getElementById('username');
 
-        if (dob.value=== "" || !tacCheck.checked || username.value==="") {
+        if (!dob.checkValidity() || !tacCheck.checkValidity() || !username.checkValidity()) {
             if (dob.value === "" ) {
                 dob.classList.add('is-invalid');
             }
 
-            if (username.value ==="") {
+            if (username.checkValidity()) {
                 username.classList.add('is-invalid');
             }
 

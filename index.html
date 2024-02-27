@@ -213,13 +213,16 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" id="password" class="form-control" required>
-                        <div class="invalid-feedback">Please enter a password.</div>
+                        <input type="password" id="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                        <small id="passwordHelp" class="form-text text-muted">Password must be at least 8 characters long and contain at least one digit, one lowercase letter, and one uppercase letter.</small>
+                        <div class="invalid-feedback">
+                          Password must be at least 8 characters long and contain at least one digit, one lowercase letter, and one uppercase letter.
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="confirmPassword">Confirm Password</label>
                         <input type="password" id="confirmPassword" class="form-control" required>
-                        <div class="invalid-feedback">Please confirm your password.</div>
+                        <div class="invalid-feedback">Please confirm your the passowrds are the same.</div>
                     </div>
                     <div class="cta__buttons">
                         <button id="next-1" class="btn btn-primary custom__primary extending__btn">Next</button>
