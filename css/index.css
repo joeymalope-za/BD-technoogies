@@ -191,7 +191,7 @@ body{
     background: transparent;
     border: none;
     display: flex;
-    height:600%;
+    height:600%; /* Length of the image slide */
     width: 150%;
     gap: 1rem;
     transform: translate3d(0%,-50%, 0) rotate(22.5deg) ;
@@ -342,6 +342,7 @@ h2{
 }
 
 /* Banner Component */
+
 /* media query tablet and below */
 @media screen and (max-width: 1200px) {
     .logo{
@@ -370,7 +371,6 @@ h2{
         bottom: 0;
         padding: 0;
         min-height: 50%;
-        /* box-sizing: content-box; */
     }
 
     .form__container{
@@ -437,12 +437,6 @@ h2{
     .form__image__col{
         display: none;
     }
-
-    /* .form__container{
-        width: 100vw;
-        padding: 2rem 5%;
-        margin-bottom: 2rem;
-    } */
 
     form{
         padding: 15px 2rem !important;
